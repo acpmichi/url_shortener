@@ -10,11 +10,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      #- "./my.conf:/etc/mysql/conf.d/config-file.cnf"
       - "./data:/var/lib/mysql:rw"
 
   polr:  
-    image: ajanvier/polr
+    image: acpmichi/dockerpolr
     ports:
      - "9069:80"
     environment:
@@ -26,11 +25,6 @@ services:
       APP_ADDRESS: "http://172.22.31.104:9069"
       ADMIN_USERNAME: admin
       ADMIN_PASSWORD: admin
-
-  #polr:
-  #  image: sahil87/polr
-  #  ports:
-  #    - "9069:80"
 
   admin:
     image: adminer
@@ -50,14 +44,6 @@ services:
   #    YOURLS_SITE: "http://172.22.31.104:9069" 
   #    YOURLS_COOKIEKEY: evenmrope
   #    YOURLS_USERS: "root:root"
-
-  #mysql-legacy:
-   # image: mysql:5.7.22
-    #environment:
-    # MYSQL_ROOT_PASSWORD: ciscodisco
-    #MYSQL_DATABASE: legacyapp
-    #ports:
-    #  - "3309:3306"
 
   #client:
   #  image: mysql:5.7.22
